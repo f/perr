@@ -4,3 +4,6 @@
 [submodule "lib/backbone"]
 	path = lib/backbone
 	url = https://github.com/documentcloud/backbone.git
+[submodule "lib/qunit"]
+	path = lib/qunit
+	url = https://github.com/jquery/qunit.git
