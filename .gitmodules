@@ -7,3 +7,6 @@
 [submodule "lib/qunit"]
 	path = lib/qunit
 	url = https://github.com/jquery/qunit.git
+[submodule "lib/coffee-script"]
+	path = lib/coffee-script
+	url = https://github.com/jashkenas/coffee-script.git
