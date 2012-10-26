@@ -1,4 +1,4 @@
-Perr v0.0.0
+perr v0.0.0
 ===========
 
 *v0.0.0 means, there's nothing working right now. It's development
