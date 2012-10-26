@@ -3,12 +3,12 @@
   <head>
     <meta charset="utf-8">
     <title>Perr UI Test Suite</title>
-    <link rel="stylesheet" href="perr/lib/qunit/addons/themes/ninja.css" type="text/css" media="screen">
-    <script type="text/javascript" src="perr/lib/qunit/qunit/qunit.js"></script>
-    <script type="text/javascript" src="perr/lib/coffee-script/extras/coffee-script.js"></script>
-
-    <script type="text/javascript">
-      CoffeeScript.load('test.coffee');
+    <link rel="stylesheet" href="../lib/qunit/addons/themes/ninja.css" type="text/css" media="screen">
+    <script type="text/javascript" src="../lib/qunit/qunit/qunit.js"></script>
+    <script type="text/javascript" src="../lib/jquery/dist/jquery.js"></script>
+    <script type="text/javascript" src="../lib/coffee-script/extras/coffee-script.js"></script>
+    <script type="text/coffeescript">
+      CoffeeScript.load 'suite.coffee'
     </script>
   </head>
   <body>

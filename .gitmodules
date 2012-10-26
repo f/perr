@@ -10,3 +10,6 @@
 [submodule "lib/coffee-script"]
 	path = lib/coffee-script
 	url = https://github.com/jashkenas/coffee-script.git
+[submodule "lib/jquery"]
+	path = lib/jquery
+	url = https://github.com/jquery/jquery.git
