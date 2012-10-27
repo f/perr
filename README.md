@@ -6,18 +6,18 @@ just started. We'll all see what it'll look like. :)*
 
 Perr is a simple UI framework to build rich internet applications.
 
-## What is the power of Perr?
+## Geek Part of Readme File
 
 Perr built on [Backbone.js](http://github.com/documentcloud/backbone)
 power.
 
 Complete list of the tools while building Perr:
 
-  - **Underscore.js** *(Requirement)*
-  - **Backbone.js** *(Requirement)*
-  - CoffeeScript *(Not Required)*
-  - QUnit with PhantomJS *(Not Required)*
-  - jQuery *(Not Required, But recommended)*
+  - **Underscore.js**
+  - **Backbone.js**
+  - CoffeeScript
+  - QUnit with PhantomJS
+  - jQuery
 
 ## Building
 
