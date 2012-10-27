@@ -16,7 +16,7 @@ Complete list of the tools while building Perr:
   - **Underscore.js** *(Requirement)*
   - **Backbone.js** *(Requirement)*
   - CoffeeScript *(Not Required)*
-  - QUnit *(Not Required)*
+  - QUnit with PhantomJS *(Not Required)*
   - jQuery *(Not Required, But recommended)*
 
 ## Todo
