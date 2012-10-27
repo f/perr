@@ -3,5 +3,5 @@
 module("Models");
 
 test("Merhaba", function() {
-  return equal("fatih", "fatih", "Fatih ile Fatih aynı mı");
+  return equal(2 + 2, 5, "Fatih ile Fatih aynı mı");
 });

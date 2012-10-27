@@ -1,4 +1,4 @@
 module "Models"
 
 test "Merhaba",->
-  equal "fatih", "fatih", "Fatih ile Fatih aynı mı"
+  equal 2 + 2, 5, "Fatih ile Fatih aynı mı"

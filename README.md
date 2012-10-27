@@ -19,6 +19,49 @@ Complete list of the tools while building Perr:
   - QUnit with PhantomJS *(Not Required)*
   - jQuery *(Not Required, But recommended)*
 
+## Building
+
+### Install Core Requirements
+
+On Linux:
+```sh
+sudo apt-get install git nodejs npm
+```
+
+On Mac OS X:
+
+If you don't have Homebrew, then install it first:
+```sh
+ruby -e "$(curl -fsSkL raw.github.com/mxcl/homebrew/go)"
+```
+
+```sh
+brew install nodejs
+curl https://npmjs.org/install.sh | sh
+```
+
+```sh
+sudo npm install -g grunt
+sudo npm install -g phantomjs
+```
+
+### Pulling the Repo and Submodules
+
+```sh
+git clone https://github.com/fkadeveloper/perr.git
+cd perr
+git submodule update --init --recursive
+cd lib/jquery && npm install && grunt && cd -
+```
+
+## Testing
+
+Console Test:
+`test/run` to start test.
+
+Web UI Test:
+`open test/index.html` to start test on Browser.
+
 ## Todo
 
   - Do something working!!! `important`
