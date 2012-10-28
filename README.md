@@ -6,7 +6,20 @@ just started. We'll all see what it'll look like. :)*
 
 Perr is a simple UI framework to build rich internet applications.
 
+## API Documentation
+
+The best part of the documentation.
+
+### UI Elements
+
+#### PerrButton
+
+#### PerrInput
+
 ## Geek Part of Readme File
+
+If you are not a contributor or a geek, you'll never need that part.
+But if you want to learn how it runs, read. :)
 
 Perr built on [Backbone.js](http://github.com/documentcloud/backbone)
 power.
