@@ -6,7 +6,7 @@ just started. We'll all see what it'll look like. :)*
 
 Perr is a simple UI framework to build rich internet applications.
 
-## API Documentation
+## API Documentation
 
 The best part of the documentation.
 
