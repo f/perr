@@ -25,7 +25,7 @@ PERR_FAILS=$(echo $PERR_RESULT|tail -1|egrep -o "(\d+) failed"|egrep -o "\d+")
 PERR_TIMESPENT=$(echo $PERR_RESULT|tail -1|egrep -o "Took (\d+)ms"|egrep -o "\d+")
 if [ "$PERR_FAILS" -gt "0" ]; then
   # Error
-  PERR_FIXME=$(echo "# PERR_FIXME List\n*Created on: $(date +'%Y-%m-%d %T')*\n\n$PERR_RESULT"|sed "s/>>> /* /g")
+  PERR_FIXME=$(echo "# FIXME List\n*Created on: $(date +'%Y-%m-%d %T')*\n\n$PERR_RESULT"|sed "s/>>> /* /g")
   PERR_FIXME=$(echo "$PERR_FIXME"|sed "s/  FAIL:/- **PERR_FIXME**:/g")
   echo "$PERR_FIXME">../FIXME.md
   PERR_RESULT=$(echo "$PERR_RESULT"|sed "s/FAIL:/\\\033[1;31mFAIL:\\\033[0m/g")
