@@ -19,7 +19,7 @@ Complete list of the tools while building Perr:
   - QUnit with PhantomJS
   - jQuery
 
-## Building
+## Setup Development Environment
 
 ### Install Core Requirements
 
@@ -54,13 +54,17 @@ git submodule update --init --recursive
 cd lib/jquery && npm install && grunt && cd -
 ```
 
-## Testing
+## Testing and Building
 
 Console Test:
 `test/run` to start test.
 
 Web UI Test:
 `open test/index.html` to start test on Browser.
+
+### Building
+
+`./build` to start building.
 
 ## Todo
 

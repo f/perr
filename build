@@ -1,39 +1,5 @@
-###
-# Perr UI Build Shell File
-###
-CRED="\033[0;31m"
-CBRED="\033[1;31m"
-CGREEN="\033[0;32m"
-CBGREEN="\033[1;32m"
-CYELLOW="\033[0;33m"
-CBYELLOW="\033[1;33m"
-CBLUE="\033[0;34m"
-CBBLUE="\033[1;34m"
-ENDC="\033[0m"
-echo "${CYELLOW}"
-echo "perr UI Build Tool"
-echo "=================="
-echo "${ENDC}"
-echo "Compiling CoffeeScript files, running Tests and creating a FIXME.md file... Please wait..."
-RESULT=$(test/run)
-echo "Testing completed. Results:"
-echo
-TESTS=$(echo $RESULT|tail -1|egrep -o "(\d+) tests"|egrep -o "\d+")
-PASSES=$(echo $RESULT|tail -1|egrep -o "(\d+) passed"|egrep -o "\d+")
-FAILS=$(echo $RESULT|tail -1|egrep -o "(\d+) failed"|egrep -o "\d+")
-TIMESPENT=$(echo $RESULT|tail -1|egrep -o "Took (\d+)ms"|egrep -o "\d+")
-if [ "$FAILS" -gt "0" ]; then
-  # Error
-  FIXME=$(echo "# FIXME List\n*Created on: $(date +'%Y-%m-%d %T')*\n\n$RESULT"|sed "s/>>> /* /g")
-  FIXME=$(echo "$FIXME"|sed "s/  FAIL:/- **FIXME**:/g")
-  echo "$FIXME">FIXME.md
-  RESULT=$(echo "$RESULT"|sed "s/FAIL:/\\\033[1;31mFAIL:\\\033[0m/g")
-  RESULT=$(echo "$RESULT"|sed "s/>>> /\\\033[1;33m>>> \\\033[0m/g")
-  RESULT=$(echo "$RESULT"|sed "s/\(Took.*$\)//g")
-  echo "$RESULT"
-  echo
-else
-  echo "# Everything is working! :)">FIXME.md
+source test/run
+if [ "$PERR_FAILS" -gt "0" ]; then
+  echo "${PERR_CYELLOW}You have to fix tests first to build, sorry...${PERR_ENDC}"
+  exit
 fi
-echo "Took ${CBBLUE}${TIMESPENT}ms${ENDC} to run ${CBYELLOW}${TESTS} tests${ENDC}. ${CBGREEN}${PASSES} passed${ENDC}, ${CBRED}${FAILS} failed${ENDC}."
-echo
