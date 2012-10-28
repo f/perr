@@ -1,0 +1,36 @@
+CRED="\033[0;31m"
+CBRED="\033[1;31m"
+CGREEN="\033[0;32m"
+CBGREEN="\033[1;32m"
+CYELLOW="\033[0;33m"
+CBYELLOW="\033[1;33m"
+ENDC="\033[0m"
+echo "${CYELLOW}"
+echo "perr UI Build Tool"
+echo "=================="
+echo "${ENDC}"
+echo "Building files, running tests and creating FIXME file if fails... Please wait..."
+RESULT=$(test/run)
+echo "Testing completed. Results:"
+echo ""
+TESTS=$(echo $RESULT|tail -1|egrep -o "(\d+) tests"|egrep -o "\d+")
+PASSES=$(echo $RESULT|tail -1|egrep -o "(\d+) passed"|egrep -o "\d+")
+FAILS=$(echo $RESULT|tail -1|egrep -o "(\d+) failed"|egrep -o "\d+")
+if [ "$FAILS" -gt "0" ]; then
+  # Error
+  FIXME=$(echo "# FIXME List\n*Created on: $(date +'%Y-%m-%d %T')*\n\n$RESULT"|sed "s/>>> /* /g")
+  FIXME=$(echo "$FIXME"|sed "s/  FAIL:/- **FIXME**:/g")
+  echo "$FIXME">FIXME.md
+  RESULT=$(echo "$RESULT"|sed "s/FAIL:/\\\033[1;31mFAIL:\\\033[0m/g")
+  RESULT=$(echo "$RESULT"|sed "s/>>> /\\\033[1;33m>>> \\\033[0m/g")
+  echo "$RESULT"
+else
+  echo "# Everything is working! :)">FIXME.md
+fi
+echo "${CYELLOW}"
+echo "Test Statistics"
+echo "---------------"
+echo "${ENDC}"
+echo "${CBGREEN}TESTS PASSED: $PASSES${ENDC}"
+echo "${CBRED}TESTS FAILED: $FAILS${ENDC}"
+echo "${CBYELLOW}TOTAL TESTS: $TESTS${ENDC}"

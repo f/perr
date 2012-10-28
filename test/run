@@ -5,4 +5,4 @@ lib/coffee-script/bin/coffee -cb -o test/dist/ test/*.coffee
 #
 # Running QUnit with PhantomJS
 #
-phantomjs lib/qunit/addons/phantomjs/runner.js test/index.html
+phantomjs test/lib/runner.js test/index.html
