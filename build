@@ -1,5 +1,9 @@
+cd `dirname "${0}"`
 source test/run
 if [ "$PERR_FAILS" -gt "0" ]; then
   echo "${PERR_CYELLOW}You have to fix tests first to build, sorry...${PERR_ENDC}"
+  cd ->/dev/null
   exit
 fi
+# build
+cd ->/dev/null

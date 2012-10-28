@@ -1,6 +1,7 @@
 ###
 # Perr UI Build Shell File
 ###
+cd `dirname "${0}"`
 PERR_CRED="\033[0;31m"
 PERR_CBRED="\033[1;31m"
 PERR_CGREEN="\033[0;32m"
@@ -11,11 +12,11 @@ PERR_CBLUE="\033[0;34m"
 PERR_CBBLUE="\033[1;34m"
 PERR_ENDC="\033[0m"
 echo "PerrUI v0.0.0 (now: $(date +'%Y-%m-%d %T'))"
-echo "${PERR_CYELLOW}... ${PERR_ENDC}Compiling CoffeeScript files, running Tests and creating a PERR_FIXME.md file... Please wait..."
+echo "${PERR_CYELLOW}... ${PERR_ENDC}Compiling CoffeeScript files, running Tests and creating a FIXME.md file... Please wait..."
 # Compile CoffeeScript
-lib/coffee-script/bin/coffee -cb -o test/dist/ test/*.coffee
+../lib/coffee-script/bin/coffee -cb -o ./dist/ ./*.coffee
 # Run phantomjs
-PERR_RESULT=$(phantomjs test/lib/runner.js test/index.html)
+PERR_RESULT=$(phantomjs ./lib/runner.js ./index.html)
 echo "${PERR_CYELLOW}... ${PERR_ENDC}Testing completed. Results:"
 echo
 PERR_TESTS=$(echo $PERR_RESULT|tail -1|egrep -o "(\d+) tests"|egrep -o "\d+")
@@ -26,14 +27,15 @@ if [ "$PERR_FAILS" -gt "0" ]; then
   # Error
   PERR_FIXME=$(echo "# PERR_FIXME List\n*Created on: $(date +'%Y-%m-%d %T')*\n\n$PERR_RESULT"|sed "s/>>> /* /g")
   PERR_FIXME=$(echo "$PERR_FIXME"|sed "s/  FAIL:/- **PERR_FIXME**:/g")
-  echo "$PERR_FIXME">PERR_FIXME.md
+  echo "$PERR_FIXME">../FIXME.md
   PERR_RESULT=$(echo "$PERR_RESULT"|sed "s/FAIL:/\\\033[1;31mFAIL:\\\033[0m/g")
   PERR_RESULT=$(echo "$PERR_RESULT"|sed "s/>>> /\\\033[1;33m>>> \\\033[0m/g")
   PERR_RESULT=$(echo "$PERR_RESULT"|sed "s/\(Took.*$\)//g")
   echo "$PERR_RESULT"
   echo
 else
-  echo "# Everything is working! :)">PERR_FIXME.md
+  echo "# Everything is working! :)">../FIXME.md
 fi
 echo "Took ${PERR_CBBLUE}${PERR_TIMESPENT}ms${PERR_ENDC} to run ${PERR_CBYELLOW}${PERR_TESTS} tests${PERR_ENDC}. ${PERR_CBGREEN}${PERR_PASSES} passed${PERR_ENDC}, ${PERR_CBRED}${PERR_FAILS} failed${PERR_ENDC}."
 echo
+cd ->/dev/null
