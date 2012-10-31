@@ -48,8 +48,7 @@ Write a list of libraries to test here.
 will load the ../src/models.coffee file and run.
 ###
 
-library 'models'
-library 'views'
+library 'test'
 
 ###
 
@@ -63,6 +62,5 @@ will load the ./models.coffee file and run.
 ###
 
 tester 'models'
-tester 'views'
 
 # the happy ending.

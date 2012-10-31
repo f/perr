@@ -1,0 +1,19 @@
+###
+# Perr UI Build Shell File
+###
+cd `dirname "${0}"`
+. ./lib/color
+echo "PerrUI v0.0.0 (now: $(date +'%Y-%m-%d %T'))"
+
+. ./compress 0
+cd `dirname "${0}"`
+. ./test 0
+
+if [ "$PERR_FAILS" -gt "0" ]; then
+  echo "${PERR_CRED}###${PERR_ENDC} ${PERR_CBYELLOW}You have to fix tests first to build, sorry...${PERR_ENDC}"
+  cd ->/dev/null
+  exit
+fi
+
+# build
+cd ->/dev/null

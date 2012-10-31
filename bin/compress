@@ -1,0 +1,15 @@
+if [ "${1}" != "0" ]; then
+cd `dirname "${0}"`
+. ./lib/color
+echo "PerrUI v0.0.0 (now: $(date +'%Y-%m-%d %T'))"
+fi
+
+echo "${PERR_CGREEN}...${PERR_ENDC} Compression started..."
+uglifyjs2 \
+  ../src/dist/test.js \
+  -o ../built/perr.min.js \
+  --source-map ../built/perr.min.js.map \
+  -p 3 -c -m
+echo "${PERR_CGREEN}===${PERR_ENDC} Compression finished..."
+
+cd ->/dev/null

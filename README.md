@@ -27,6 +27,7 @@ Complete list of the tools while building Perr:
   - CoffeeScript
   - QUnit with PhantomJS
   - jQuery
+  - UglifyJS2
 
 ## Setup Development Environment
 
@@ -52,6 +53,7 @@ curl https://npmjs.org/install.sh | sh
 ```sh
 sudo npm install -g grunt
 sudo npm install -g phantomjs
+sudo npm install -g uglify-js2
 ```
 
 ### Pulling the Repo and Submodules
